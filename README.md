@@ -4,6 +4,9 @@ Olá, devs! Acompanhe como foi construído este projeto de Pokédex consumindo a
 
 Para este projeto, foram utilizadas tecnologias, como: HTML, CSS e JavaScript.
 
+### Confira o projeto 
+[Pokédex](https://pokedex-s.netlify.app/)
+
 #### Link inicial:
 https://pokeapi.co/api/v2/pokemon?offset=0&limit=10               
 - Este link retorna uma lista de objetos encapsulados dentro dentro de um objeto. Cada objeto contém um nome e uma url que precisa ser acessada para obtenção de mais detalhes do pokemon.
@@ -25,10 +28,12 @@ https://pokeapi.co/api/v2/pokemon/1/
 
 ## Screenshots
 ![Lista de Pokémons - Desktop](https://github.com/pchfe/Pokedex-Consumo-API-REST-PokeAPI/blob/main/assets/ProjectImages/listPokemons.PNG)
-![Detalhes do Pokémon - Desktop](https://github.com/pchfe/Pokedex-Consumo-API-REST-PokeAPI/blob/main/assets/ProjectImages/pokemonDetails.PNG)
-![Lista de Pokémons - Mobile](https://github.com/pchfe/Pokedex-Consumo-API-REST-PokeAPI/blob/main/assets/ProjectImages/list_Pokemons_mobile.jpg)
-![Detalhe do Pokémon - Mobile](https://github.com/pchfe/Pokedex-Consumo-API-REST-PokeAPI/blob/main/assets/ProjectImages/pokemon_detail_mobile.jpg)
 
+![Detalhes do Pokémon - Desktop](https://github.com/pchfe/Pokedex-Consumo-API-REST-PokeAPI/blob/main/assets/ProjectImages/pokemonDetails.PNG)
+
+![Lista de Pokémons - Mobile](https://github.com/pchfe/Pokedex-Consumo-API-REST-PokeAPI/blob/main/assets/ProjectImages/list_Pokemons_mobile.jpg)
+
+![Detalhe do Pokémon - Mobile](https://github.com/pchfe/Pokedex-Consumo-API-REST-PokeAPI/blob/main/assets/ProjectImages/pokemon_detail_mobile.jpg)
 
 ## Licença
 
