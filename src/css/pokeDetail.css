@@ -1,0 +1,305 @@
+
+.window{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 100%;
+    /* background-color: #15b9955e; */
+    position: fixed;
+    left: -60px;
+    bottom: 0;
+    border-top: 2.5px solid white;
+    border-bottom: 2.5px solid white;
+    transition: 0.1s ease-in-out;
+    user-select: none;
+}
+
+.window-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid white;
+    background-color: rgb(167, 66, 66);
+    width: 94%;
+    height: 650px;
+    border-radius: 2rem;
+    padding: 35px 0px 0px 0px;
+    overflow: hidden;
+    animation: tremer 0.5s ease-out infinite;
+}
+.window-content .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 23px 0 23px;
+    z-index: 1;
+    background: transparent;
+    border: transparent;
+}
+.window-content .top .icon-back{
+    color: white;
+    cursor: pointer;
+}
+.window-content .top .icon-back::after{
+    content: "";
+    z-index: -2;
+    top: -55px;
+    left: -50px;
+    transform: rotate(-18deg);
+    border-radius: 1.5rem;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+}
+.window-content .top .icon-heart{
+    color: rgb(72, 208, 176);
+}
+
+.window-content .content{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+.cS{
+    background-color: #15b995e1;
+}
+
+.window-content .header-detail{
+    width: 100%;
+    height: 310px;
+    margin: 0;
+    z-index: 10;
+}
+.window-content .header-detail .pokemon{
+    padding: 0 25px 0 25px;
+    margin: 0;
+}
+
+.window-content .header-detail .pokemon .name{
+    color: white;
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin: 16px 0 0 0;
+}
+.window-content .header-detail .pokemon .number{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+.window-content .header-detail .pokemon .detail{
+    margin: 0;
+    padding: 0;
+    height: 25px;
+}
+
+.window-content .header-detail .pokemon .detail .types{
+    display: flex;
+    gap: 6px;
+    margin: 0;
+}
+.window-content .header-detail .pokemon .detail .types
+.type{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    height: 25px;
+    padding: 0 18px 0 18px;
+    background-color: rgb(72, 208, 176);
+    filter: brightness(1);
+}
+
+
+/* =========================== */
+
+
+.main-detail{
+    position: relative;
+    border-top-left-radius: 1.8rem;
+    border-top-right-radius: 1.8rem;
+    width: 100%;
+    height: calc(100% - 240px);
+    background-color: rgb(231, 231, 231);
+}
+.main-detail .poke-img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+}
+.main-detail .poke-img #pokemonImg{
+    position: absolute;
+    bottom: 8px;
+    width: 160px;
+    z-index: 1;
+}
+.main-detail  #pokebola{
+    position: absolute;
+    top: -50%;
+    right: -30px;
+    width: 170px;
+    z-index: -1;
+    opacity: 0.4;
+    bottom: 22px;
+    animation: girar 1.5s linear infinite;
+}
+
+.main-detail .titles{
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 0px 1px;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.507);
+}
+.main-detail .titles ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 15px;
+    gap: 25px;
+}
+.main-detail .titles ul li {
+    padding: 0 5px 0 5px;
+}
+.titles ul li:nth-child(1){
+    color: black;
+    font-weight: bold;
+}
+
+
+.main-detail .titles ul::after{
+    content: "";
+    position: absolute;
+    color: black;
+    width: 45px;
+    border: 1px solid #3315b991;
+    bottom: 0;
+    left: 15px;
+    margin-bottom: 0px;
+}
+.main-detail .titles #about{
+    font-weight: bold;
+    color: black;
+}
+
+.main-detail .description{
+    width: 100%;
+    padding: 10px 10px 25px 18px;
+}
+.main-detail .description table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.main-detail .description th{
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.911);
+    width: 100px;
+    padding: 10px 0 0 0;
+}
+.main-detail .description th, td{
+    text-align: left;
+    text-transform: capitalize;
+}
+.main-detail .description td{
+    color: rgba(0, 0, 0, 0.822);
+    padding: 10px 0 0 0;
+    display: flex;
+    gap: 5px;
+}
+.main-detail .description #height{
+    text-transform: none;
+}
+.description p {
+    padding-top: 8px;
+    margin: 16px 8px 0px 0;
+}
+.main-detail .description .icon-gender{
+    font-size: 15px;
+}
+.main-detail .description .icon-gender.male{
+    color: #1417d1b9;
+}
+.main-detail .description .icon-gender.female{
+    color: #d114c8b9;
+}
+
+
+
+
+@keyframes girar {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes tremer {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-0.5deg);
+    }
+    75%{
+        transform: rotate(0.5deg);
+
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+
+
+@media screen and (width: 412px) {
+    .window .window-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: -100px;
+        left: 8%;
+        background-color: #15b995fb;
+        border: 3px solid white;
+        margin: 50% auto;
+        width: 85%;
+        height: 70%;
+        border-radius: 2rem;
+        overflow: hidden;
+        animation: tremer 0.5s ease-out infinite;
+    }
+}
+
+@media screen and (min-width: 930px) {
+    .window-content {
+        border: none;
+    }
+    .window-content{
+        width: 850px;
+    }
+    .header-detail{
+        border-radius: 0;
+    }
+    .window-content .content{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .window-content {
+        width: 352px;
+    }  
+}
