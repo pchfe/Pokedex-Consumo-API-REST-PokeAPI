@@ -1,7 +1,7 @@
 
 const pokeApi = {};
 
-function convertPokeApiDetailToPokemon(pokeDetail, eggs) {
+function convertPokeApiDetailToPokemon(pokeDetail, pokeDetailTwo) {
     const pokemon = new Pokemon();
     pokemon.number = pokeDetail.id;
     pokemon.name = pokeDetail.name;
@@ -21,7 +21,8 @@ function convertPokeApiDetailToPokemon(pokeDetail, eggs) {
     pokemon.height = pokeDetail.height;
     pokemon.weight = pokeDetail.weight;
 
-    pokemon.eggGroups = eggs.map((listar) => listar.name)
+    const eggGroups = pokeDetailTwo.egg_groups.map((details) => details);
+    pokemon.eggGroups = eggGroups.map((listar) => listar.name);
     
     return pokemon;
 }
@@ -32,11 +33,11 @@ pokeApi.getPokemonDetail = async (pokemon) => {
         const response = await fetch(pokemon.url);
         const data = await response.json();
 
-        const GroupNames = await fetch(data.species.url)
-        const listaNames = await GroupNames.json()
-        const eggs = await listaNames.egg_groups.map((groupN) => groupN)
+        const resPokeDetail = await fetch(data.species.url)
+        const dataTwoPokeDetails = await resPokeDetail.json()
 
-        return convertPokeApiDetailToPokemon(data, eggs);
+        return convertPokeApiDetailToPokemon(data, dataTwoPokeDetails);
+
     } catch (error) {
         console.error('Error fetching Pokemon details:', error);
         throw error;

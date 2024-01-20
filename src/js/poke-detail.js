@@ -13,11 +13,13 @@ const thTableTwo = document.getElementById('thTableTwo');
 pokemonList.onclick = () => {
     janela.style.width = '100%';
     janela.style.left = 0;
+    document.querySelector('body').style.overflow = 'hidden';
 }
 
 spanModal.onclick = () => {
     janela.style.width = '-100%';
     janela.style.left = '-100%';
+    document.querySelector('body').style.overflow = 'visible';
 }
 
 pokemonList.addEventListener('click', function(event) {

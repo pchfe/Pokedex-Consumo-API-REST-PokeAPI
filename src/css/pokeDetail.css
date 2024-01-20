@@ -5,7 +5,7 @@
     justify-content: center;
     width: 50px;
     height: 100%;
-    /* background-color: #15b9955e; */
+    background-color: #15b9955e;
     position: fixed;
     left: -60px;
     bottom: 0;
@@ -22,7 +22,7 @@
     flex-direction: column;
     border: 3px solid white;
     background-color: rgb(167, 66, 66);
-    width: 94%;
+    width: 360px;
     height: 680px;
     border-radius: 2rem;
     padding: 35px 0px 0px 0px;
@@ -134,8 +134,9 @@
 }
 .main-detail .poke-img #pokemonImg{
     position: absolute;
-    bottom: 8px;
-    width: 160px;
+    bottom: -5px;
+    width: 200px;
+    height: 200px;
     z-index: 1;
 }
 .main-detail  #pokebola{
@@ -179,7 +180,7 @@
     content: "";
     position: absolute;
     color: black;
-    width: 45px;
+    width: 50px;
     border: 1px solid #3315b991;
     bottom: 0;
     left: 15px;
@@ -253,13 +254,76 @@
     }
     75%{
         transform: rotate(0.5deg);
-
+        
     }
     100%{
         transform: rotate(0deg);
     }
 }
 
+@media screen and (max-width: 500px) {
+    .content .window {
+        border: none;
+    }
+    .window-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        animation: none;
+        border: none;
+    }
+    .window-content .header-detail {
+        height: 450px;
+    }
+    .main-detail .titles {
+        font-size: 18px;
+    }
+    .main-detail .titles ul::after{
+        left: 28px;
+    }
+    .main-detail .poke-img #pokemonImg{
+        width: 250px;
+        height: 250px;
+    }
+    .main-detail .description {
+        padding: 20px 0 10px 30px;
+        font-size: 18px;
+    }
+    .main-detail .description .table-one {
+        font-size: 18px;
+        padding: 30px;
+    }
+    .main-detail .description .table-two {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .main-detail .titles {
+        font-size: 16px;
+    }
+    .main-detail .description {
+        font-size: 16px;
+    }
+    .main-detail .description .table-one {
+        font-size: 16px;
+    }
+    .main-detail .description .table-two {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 930px) {
+    .window-content {
+        border: none;
+    }
+    .header-detail{
+        border-radius: 0;
+    }
+    .window-content .content{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
 
 
 @media screen and (width: 412px) {
@@ -282,24 +346,9 @@
     }
 }
 
-@media screen and (min-width: 930px) {
-    .window-content {
-        border: none;
-    }
-    .window-content{
-        width: 850px;
-    }
-    .header-detail{
-        border-radius: 0;
-    }
-    .window-content .content{
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-}
 
-@media screen and (min-width: 400px) {
+/* @media screen and (min-width: 400px) {
     .window-content {
         width: 352px;
     }  
-}
+} */
