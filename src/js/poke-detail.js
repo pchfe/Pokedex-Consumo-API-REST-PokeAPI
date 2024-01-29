@@ -22,71 +22,56 @@ spanModal.onclick = () => {
     document.querySelector('body').style.overflow = 'visible';
 }
 
-pokemonList.addEventListener('click', function(event) {
+function loadDetailPokemon(pokemon) {
 
-    const clickedPokemon = event.target.closest('.pokemon');
-    
-    if (clickedPokemon) {
-
-        const number = clickedPokemon.getAttribute('data-number');
-        const name = clickedPokemon.getAttribute('data-name');
-        const photo = clickedPokemon.getAttribute('data-photo');
-        const typesString = clickedPokemon.getAttribute('data-types');
-        const abilities = clickedPokemon.getAttribute('data-abilities');
-        const height = clickedPokemon.getAttribute('data-height');
-        const weight = clickedPokemon.getAttribute('data-weight');
-        const eggs = clickedPokemon.getAttribute('data-eggs');
-        const types = typesString.split(',').map(type => type.trim());
-        
-        const pokemonHeaderHTML = `
-            <!-- Nome do pokemon e tipos -->
+    const pokemonHeaderHTML = `
             <li class="poke-modal pokemon" id="poke-modal" >
-                <span class="name">${name}</span>
-                <span class="number">#${number}</span>
+                <span class="name">${pokemon.name}</span>
+                <span class="number">#${pokemon.number}</span>
                 <div class="detail">
                     <ol class="types">
-                        ${types.map((p1) => `<li class="type">${p1}</li>`).join('')}
+                        ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
                     </ol>
                 </div>
             </li>
             `
             
-        const pokemonImgHTML = `
-            <img class="pokemonImg" id="pokemonImg" src="${photo}">
-        `
-        const tableOneHTML = `
-            <tbody>
-                <tr>
-                    <th>Species</th>
-                    <td>${name}</td>
-                </tr>
-                <tr>
-                    <th id="height">Height</th>
-                    <td>${height} ( cm / m )</td>
-                </tr>
-                <tr>
-                    <th>Weight</th>
-                    <td>${weight} ( kg )</td>
-                </tr>
-                <tr>
-                    <th>Abilities</th>
-                    <td>${abilities}</td>
-                </tr>
-            </tbody>
-        `
-        const tableTwoHTML = `
-            <th>Egg Groups</th>
-            <td>${eggs}</td>            
-        `
+    const pokemonImgHTML = `
+        <img class="pokemonImg" id="pokemonImg" src="${pokemon.photo}">
+    `
+    const tableOneHTML = `
+        <tbody>
+            <tr>
+                <th>Species</th>
+                <td>${pokemon.name}</td>
+            </tr>
+            <tr>
+                <th id="height">Height</th>
+                <td>${(pokemon.height) / 10} ( cm / m )</td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td>${(pokemon.weight) / 10} ( kg )</td>
+            </tr>
+            <tr>
+                <th>Abilities</th>
+                <td>${pokemon.abilities.join(', ')}</td>
+            </tr>
+        </tbody>
+    `
+    const tableTwoHTML = `
+        <th>Egg Groups</th>
+        <td>${pokemon.eggGroups.join(', ')}</td>            
+    `
         
-        changePokemonColor(types);
+    changePokemonColor(pokemon.types);
 
-        DivImgPokemon.innerHTML = pokemonImgHTML;
-        divHeaderDetail.innerHTML = pokemonHeaderHTML
-        tableOne.innerHTML = tableOneHTML;
-        thTableTwo.innerHTML = tableTwoHTML;
-    }
-});
+    DivImgPokemon.innerHTML = pokemonImgHTML;
+    divHeaderDetail.innerHTML = pokemonHeaderHTML
+    tableOne.innerHTML = tableOneHTML;
+    thTableTwo.innerHTML = tableTwoHTML;
+
+};
 
 
 const changePokemonColor = (types) => {

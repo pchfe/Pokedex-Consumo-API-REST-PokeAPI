@@ -19,25 +19,27 @@ function hideLoading() {
 function loadPokemonItems(offset, limit) {  
     showLoading();
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-        const newHtml = pokemons.map((pokemon) => `
-            <li class="pokemon ${pokemon.type} sp" data-number="${pokemon.number}" data-name="${pokemon.name}" 
-            data-types="${pokemon.types}" data-photo="${pokemon.photo}" data-abilities="${pokemon.abilities.join(', ')}"
-            data-height="${(pokemon.height)/10}" data-weight="${(pokemon.weight / 10).toFixed(1)}" data-eggs="${pokemon.eggGroups.join(', ')}">
-                    <span class="number">#${pokemon.number}</span>
-                    <span class="name">${pokemon.name}</span>
         
-                    <div class="detail">
-                        <ol class="types">
-                            ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
-                        </ol>
-                        <img src="${pokemon.photo}"
-                            alt="${pokemon.name}">
-                    </div>
-                </li>
-        `).join('')
-        
+        pokemons.forEach((pokemon) => {
+            const listItem = document.createElement('li');
+            listItem.className = `pokemon ${pokemon.type}`;
+            
+            listItem.innerHTML = `
+                <span class="number">#${pokemon.number}</span>
+                <span class="name">${pokemon.name}</span>
+                <div class="detail">
+                    <ol class="types">
+                        ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
+                    </ol>
+                    <img src="${pokemon.photo}" alt="${pokemon.name}">
+                </div>
+            `;
 
-        pokemonList.innerHTML += newHtml
+            listItem.addEventListener('click', () => loadDetailPokemon(pokemon));
+
+            pokemonList.appendChild(listItem);
+        });
+        
         hideLoading();
         
         // console.log(pokemons)
