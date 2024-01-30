@@ -4,7 +4,7 @@ const windowContent = document.getElementById('window-content');
 
 const DivImgPokemon = document.getElementById('poke-img');
 const divHeaderDetail = document.querySelector('.header-detail');
-const iconFavorite = document.getElementById('icon-heart');
+const alert = document.getElementById('alert');
 const divFavorite = document.getElementById('favorite');
 const tableOne = document.querySelector('.table-one');
 const thTableTwo = document.getElementById('thTableTwo');
@@ -21,6 +21,17 @@ spanModal.onclick = () => {
     janela.style.left = '-100%';
     document.querySelector('body').style.overflow = 'visible';
 }
+
+function alertModal() {
+    alert.style.visibility = 'visible';
+    alert.style.top = '5px';
+
+    setTimeout(() => {
+        alert.style.top = '-10%';
+        alert.style.visibility = 'hidden';
+    }, 1300)
+}
+
 
 function loadDetailPokemon(pokemon) {
 
@@ -63,6 +74,45 @@ function loadDetailPokemon(pokemon) {
         <th>Egg Groups</th>
         <td>${pokemon.eggGroups.join(', ')}</td>            
     `
+
+    const alertAddHTML = `
+        <img src="${pokemon.photo}">
+        <p>Pokémon favoritado com sucesso!</p>
+    `
+    const alertRemoveHTML = `
+        <img src="${pokemon.photo}">
+        <p>Pokémon removido dos favoritos com sucesso!</p>
+    `
+
+    const iconFavorite = document.getElementById('icon-heart');
+    let listFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const isFavorited = listFavorites.includes(pokemon.number);
+
+    if (isFavorited) {
+        iconFavorite.className = "fa-solid fa-heart icon-heart"
+    } else {
+        iconFavorite.className = "fa-regular fa-heart icon-heart"
+    }
+
+    iconFavorite.addEventListener('click', () => {
+        
+        if (isFavorited) {
+            listFavorites = listFavorites.filter((favPokemon) => favPokemon !== pokemon.number);
+            iconFavorite.className = "fa-regular fa-heart icon-heart"
+            alert.innerHTML = alertRemoveHTML;
+            alertModal()
+        } else {
+            if (!listFavorites.includes(pokemon.number)) {
+                listFavorites.push(pokemon.number);
+                iconFavorite.className = "fa-solid fa-heart icon-heart"
+                alert.innerHTML = alertAddHTML;
+                alertModal()
+            }
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(listFavorites));
+        isFavorited = !isFavorited;
+    });
         
     changePokemonColor(pokemon.types);
 
