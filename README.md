@@ -4,7 +4,7 @@ Olá, devs! Acompanhe como foi construído este projeto de Pokédex consumindo a
 
 Para este projeto, foram utilizadas tecnologias, como: HTML, CSS e JavaScript.
 
-### Confira o projeto 
+### Confira o projeto:
 [Pokédex](https://pokedex-s.netlify.app/)
 
 #### Link inicial:
